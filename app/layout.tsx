@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import { ThemeProvider } from "@/components/theme-provider";
+import  ModeToggle  from "@/components/ModeToggle";
+import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -14,9 +16,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <main className="flex min-h-screen flex-col items-center  p-24">
+      <div className="z-10 w-full max-w-5xl items-center justify-between  text-sm lg:flex">
+       <Link href="/"><h2 className="text-2xl text-bold">Pokemon Finder</h2></Link> 
+        <ModeToggle/>
+      </div>
+        {children}
+        </main>
+          </ThemeProvider>
+      </body>
     </html>
   );
 }
