@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input"
 import { PokemonCard } from "./pokemon-card";
+import { Key } from "lucide-react";
 
 interface PokemonGridProps {
     pokemonList: any;
@@ -10,8 +11,6 @@ interface PokemonGridProps {
 
 export function PokemonGrid({pokemonList}: PokemonGridProps) {
     const [SearchText, setSearchText] = useState("");
-
-    console.log(pokemonList)
 
     const searchFilter = (pokemonList: any) => {
         return pokemonList.filter(
@@ -38,7 +37,7 @@ export function PokemonGrid({pokemonList}: PokemonGridProps) {
 
             {filteredPokemonList.map((pokemon : any) => {
                 return(
-                    <PokemonCard key={pokemon.id} name={pokemon.name}/>
+                    <PokemonCard key={pokemon.name + "card"} name={pokemon.name}/>
                 )
             })} 
       </div>
