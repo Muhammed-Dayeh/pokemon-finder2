@@ -10,9 +10,9 @@ It displays key details such as image, type, height, and weight of the Pokémon.
 - Responsive design (basic layout)
 
 ## 🛠️ Built With
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
+- next-js
+- tailwindcss
+- TypeScript 
 - PokéAPI
 
 ## 🚀 Live Demo
